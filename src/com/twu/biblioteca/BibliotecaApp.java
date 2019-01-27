@@ -10,7 +10,7 @@ public class BibliotecaApp {
 
         Library library = new Library(ResStrings.booksList);
 
-        Printer.printMessage(ResStrings.welcomeMessage);
+        System.out.println(ResStrings.welcomeMessage);
 
         library.runMenu();
 //        Printer.printBooksWithTitles(library.getBooksTitleList());  // 1.2

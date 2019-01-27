@@ -7,10 +7,6 @@ import java.util.List;
 
 public class Printer {
 
-    public static void printMessage(String message) {
-        System.out.println(message);
-    }
-
     public static void printBooksWithTitles(List<Book> books) {
 //        System.out.println("Available books:");
 //        for(String title : titles) {

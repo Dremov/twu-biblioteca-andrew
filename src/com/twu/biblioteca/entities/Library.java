@@ -83,6 +83,7 @@ public class Library {
         for (Book book : catalogBooks) {
             if (choiceInput.equals(book.getId()) && book.isAvailable()) {
                 book.setAvailable(false);
+                System.out.println(ResStrings.succsessfulBookCheckout);
             }
         }
 //        }

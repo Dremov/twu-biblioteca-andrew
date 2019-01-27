@@ -4,6 +4,7 @@ public class ResStrings {
     public static String welcomeMessage = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n";
     public static String invalidMenuOption = "Please select a valid option!\n";
     public static String bookCheckoutMessage = "\nTo check-out a book, please type its id: ";
+    public static String succsessfulBookCheckout = "Thank you! Enjoy the book\n";
 
 
     public static String[] menuOptions = {
