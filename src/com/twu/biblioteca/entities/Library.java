@@ -90,13 +90,16 @@ public class Library {
                         System.out.println(ResStrings.checkoutBookSuccsessful);
                         control = false;
                     } else {
-                        System.out.println(ResStrings.checkoutBookUnseccsessful);
-                        Printer.printBooksWithTitles(catalogBooks);
+//                        System.out.println(ResStrings.checkoutBookUnseccsessful);
+//                        Printer.printBooksWithTitles(catalogBooks);
+                        book.setAvailable(true);
+//                        System.out.println(ResStrings.checkoutBookSuccsessful);
+                        control = false;
                     }
                 }
             }
             if (!bookExists) {
-                System.out.println(ResStrings.checkoutBookUnseccsessful2);
+                System.out.println(ResStrings.checkoutBookUnseccsessful);
                 Printer.printBooksWithTitles(catalogBooks);
             }
         }
