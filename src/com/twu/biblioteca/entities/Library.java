@@ -52,8 +52,8 @@ public class Library {
                 int choice = Integer.parseInt(choiceInput);
                 switch (choice) {
                     case 1:
-//                    Printer.printFullBooksInfo(availableBooks);
                         Printer.printBooksWithTitles(availableBooks);
+                        runBooksMenu();
                         break;
 
                     case 0:
@@ -70,6 +70,15 @@ public class Library {
             } catch (NumberFormatException e) {
                 System.out.println(ResStrings.invalidMenuOption);
             }
+        }
+    }
+
+    private void runBooksMenu() {
+        boolean control = true;
+
+        while (control) {
+            Scanner input = new Scanner(System.in);
+            String choiceInput = input.next();
         }
     }
 

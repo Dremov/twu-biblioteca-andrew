@@ -2,16 +2,26 @@ package com.twu.biblioteca.entities;
 
 public class Book {
 
+    private boolean checkedOut;
     private String id;
     private String title;
     private String author;
     private int year;
 
     public Book(String id, String bookTitle, String author, int year) {
+        setCheckedOut(false);
         setId(id);
         setTitle(bookTitle);
         setAuthor(author);
         setYear(year);
+    }
+
+    public boolean isCheckedOut() {
+        return checkedOut;
+    }
+
+    public void setCheckedOut(boolean checkedOut) {
+        this.checkedOut = checkedOut;
     }
 
     public String getId() {

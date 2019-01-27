@@ -1,13 +1,14 @@
 package com.twu.biblioteca.util;
 
 import com.twu.biblioteca.entities.Book;
+import com.twu.biblioteca.res.ResStrings;
 
 import java.util.List;
 
 public class Printer {
 
     public static void printMessage(String message) {
-        System.out.println(message + "\n");
+        System.out.println(message);
     }
 
     public static void printBooksWithTitles(List<Book> books) {
@@ -39,6 +40,7 @@ public class Printer {
         for(Book book : books) {
             sb.append(book.getId()).append(" - ").append(book.getTitle()).append("\n");
         }
+        sb.append(ResStrings.bookCheckoutMessage);
 
         return sb.toString();
     }
