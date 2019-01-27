@@ -36,7 +36,7 @@ public class Library {
 
     private void generateBooks(String[][] bookList) {
         for (String[] book : bookList) {
-            this.availableBooks.add(new Book(book[0], book[1], Integer.parseInt(book[2])));
+            this.availableBooks.add(new Book(book[0], book[1], book[2], Integer.parseInt(book[3])));
         }
     }
 
@@ -53,7 +53,7 @@ public class Library {
                 switch (choice) {
                     case 1:
 //                    Printer.printFullBooksInfo(availableBooks);
-                        Printer.printBooksWithTitles(getBooksTitleList());
+                        Printer.printBooksWithTitles(availableBooks);
                         break;
 
                     case 0:

@@ -26,9 +26,9 @@ public class ExampleTest {
     public void testBookTitleListOutput() {
         String[][] books = ResStrings.booksList;
         Library library = new Library(books);
-        assertEquals("Available books:\n" +
-                " - "+books[0][0]+"\n" +
-                " - "+books[1][0]+"\n" +
-                " - "+books[2][0]+"\n", Printer.generateBooksTitlesOutput(library.getBooksTitleList()));
+        assertEquals("\nAvailable books:\n" +
+                books[0][0]+" - "+books[0][1]+"\n" +
+                books[1][0]+" - "+books[1][1]+"\n" +
+                books[2][0]+" - "+books[2][1]+"\n", Printer.generateBooksTitlesOutput(library.getBookList()));
     }
 }

@@ -10,12 +10,12 @@ public class Printer {
         System.out.println(message + "\n");
     }
 
-    public static void printBooksWithTitles(String[] titles) {
+    public static void printBooksWithTitles(List<Book> books) {
 //        System.out.println("Available books:");
 //        for(String title : titles) {
 //            System.out.println(" - " + title);
 //        }
-        System.out.println(generateBooksTitlesOutput(titles));
+        System.out.println(generateBooksTitlesOutput(books));
     }
 
     public static void printFullBooksInfo(List<Book> books) {
@@ -33,11 +33,11 @@ public class Printer {
         System.out.print("Pick an option: ");
     }
 
-    public static String generateBooksTitlesOutput(String[] titles) {
+    public static String generateBooksTitlesOutput(List<Book> books) {
         StringBuilder sb = new StringBuilder("\nAvailable books:\n");
 
-        for(String title : titles) {
-            sb.append(" - ").append(title).append("\n");
+        for(Book book : books) {
+            sb.append(book.getId()).append(" - ").append(book.getTitle()).append("\n");
         }
 
         return sb.toString();
