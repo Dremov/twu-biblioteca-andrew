@@ -52,7 +52,6 @@ public class Library {
                 int choice = Integer.parseInt(choiceInput);
                 switch (choice) {
                     case 1:
-                        Printer.printBooksWithTitles(catalogBooks);
                         runBooksMenu();
                         break;
 
@@ -74,19 +73,32 @@ public class Library {
     }
 
     private void runBooksMenu() {
+        Printer.printBooksWithTitles(catalogBooks);
+
         boolean control = true;
+        boolean bookExists = false;
 
-//        while (control) {
-        Scanner input = new Scanner(System.in);
-        String choiceInput = input.next();
+        while (control) {
+            Scanner input = new Scanner(System.in);
+            String choiceInput = input.next();
 
-        for (Book book : catalogBooks) {
-            if (choiceInput.equals(book.getId()) && book.isAvailable()) {
-                book.setAvailable(false);
-                System.out.println(ResStrings.succsessfulBookCheckout);
+            for (Book book : catalogBooks) {
+                if (choiceInput.equals(book.getId())) {
+                    bookExists = true;
+                    if (book.isAvailable()) {
+                        book.setAvailable(false);
+                        System.out.println(ResStrings.checkoutBookSuccsessful);
+                        control = false;
+                    } else {
+                        System.out.println(ResStrings.checkoutBookUnseccsessful);
+                        Printer.printBooksWithTitles(catalogBooks);
+                    }
+                }
+            }
+            if (!bookExists) {
+                System.out.println(ResStrings.checkoutBookUnseccsessful2);
+                Printer.printBooksWithTitles(catalogBooks);
             }
         }
-//        }
     }
-
 }
