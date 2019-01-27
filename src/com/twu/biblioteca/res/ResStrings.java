@@ -5,7 +5,10 @@ public class ResStrings {
     public static String invalidMenuOption = "Please select a valid option!\n";
 
 
-    public static String[] menuOptions = {"1. List of books"};
+    public static String[] menuOptions = {
+            "1 - List of books",
+            "0 - Quit"
+    };
 
     public static String[][] booksList = {
             {"Pride and Prejudice", "Jane Austen", "1813"},

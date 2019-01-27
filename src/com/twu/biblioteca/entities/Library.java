@@ -56,6 +56,10 @@ public class Library {
                         Printer.printBooksWithTitles(getBooksTitleList());
                         break;
 
+                    case 0:
+                        System.exit(0);
+                        break;
+
                     default:
                         System.out.println(ResStrings.invalidMenuOption);
                         break;
