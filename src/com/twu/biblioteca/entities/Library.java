@@ -1,9 +1,11 @@
 package com.twu.biblioteca.entities;
 
 import com.twu.biblioteca.res.ResStrings;
+import com.twu.biblioteca.util.Printer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Library {
 
@@ -37,4 +39,22 @@ public class Library {
             this.availableBooks.add(new Book(book[0], book[1], Integer.parseInt(book[2])));
         }
     }
+
+    public void runMenu() {
+        boolean control = true;
+        Printer.printMenu(ResStrings.menuOptions);
+
+        while (control) {
+            Scanner input = new Scanner(System.in);
+            int choice = input.nextInt();
+
+            switch (choice) {
+                case 1:
+//                    Printer.printFullBooksInfo(availableBooks);
+                    Printer.printBooksWithTitles(getBooksTitleList());
+                    break;
+            }
+        }
+    }
+
 }

@@ -25,8 +25,16 @@ public class Printer {
         }
     }
 
+    public static void printMenu(String[] menuOptions) {
+        System.out.println("Menu:");
+        for (String option : menuOptions) {
+            System.out.println(option);
+        }
+        System.out.print("Pick an option: ");
+    }
+
     public static String generateBooksTitlesOutput(String[] titles) {
-        StringBuilder sb = new StringBuilder("Available books:\n");
+        StringBuilder sb = new StringBuilder("\nAvailable books:\n");
 
         for(String title : titles) {
             sb.append(" - ").append(title).append("\n");
