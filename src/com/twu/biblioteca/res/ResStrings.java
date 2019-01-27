@@ -2,6 +2,8 @@ package com.twu.biblioteca.res;
 
 public class ResStrings {
     public static String welcomeMessage = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
+    public static String invalidMenuOption = "Please select a valid option!\n";
+
 
     public static String[] menuOptions = {"1. List of books"};
 

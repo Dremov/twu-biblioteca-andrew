@@ -46,13 +46,25 @@ public class Library {
 
         while (control) {
             Scanner input = new Scanner(System.in);
-            int choice = input.nextInt();
+            String choiceInput = input.next();
 
-            switch (choice) {
-                case 1:
+            try {
+                int choice = Integer.parseInt(choiceInput);
+                switch (choice) {
+                    case 1:
 //                    Printer.printFullBooksInfo(availableBooks);
-                    Printer.printBooksWithTitles(getBooksTitleList());
-                    break;
+                        Printer.printBooksWithTitles(getBooksTitleList());
+                        break;
+
+                    default:
+                        System.out.println(ResStrings.invalidMenuOption);
+                        break;
+                }
+
+                Printer.printMenu(ResStrings.menuOptions);
+
+            } catch (NumberFormatException e) {
+                System.out.println(ResStrings.invalidMenuOption);
             }
         }
     }
