@@ -9,10 +9,10 @@ import java.util.Scanner;
 
 public class Library {
 
-    private ArrayList<Book> availableBooks;
+    private ArrayList<Book> catalogBooks;
 
     public Library(String[][] booksList) {
-        availableBooks = new ArrayList<Book>();
+        catalogBooks = new ArrayList<Book>();
         generateBooks(booksList);
     }
 
@@ -21,13 +21,13 @@ public class Library {
     }
 
     public ArrayList<Book> getBookList() {
-        return availableBooks;
+        return catalogBooks;
     }
 
     public String[] getBooksTitleList() {
         List<String> booksTitles = new ArrayList<String>();
 
-        for (Book book : availableBooks) {
+        for (Book book : catalogBooks) {
             booksTitles.add(book.getTitle());
         }
 
@@ -36,7 +36,7 @@ public class Library {
 
     private void generateBooks(String[][] bookList) {
         for (String[] book : bookList) {
-            this.availableBooks.add(new Book(book[0], book[1], book[2], Integer.parseInt(book[3])));
+            this.catalogBooks.add(new Book(book[0], book[1], book[2], Integer.parseInt(book[3])));
         }
     }
 
@@ -52,7 +52,7 @@ public class Library {
                 int choice = Integer.parseInt(choiceInput);
                 switch (choice) {
                     case 1:
-                        Printer.printBooksWithTitles(availableBooks);
+                        Printer.printBooksWithTitles(catalogBooks);
                         runBooksMenu();
                         break;
 
@@ -76,10 +76,16 @@ public class Library {
     private void runBooksMenu() {
         boolean control = true;
 
-        while (control) {
-            Scanner input = new Scanner(System.in);
-            String choiceInput = input.next();
+//        while (control) {
+        Scanner input = new Scanner(System.in);
+        String choiceInput = input.next();
+
+        for (Book book : catalogBooks) {
+            if (choiceInput.equals(book.getId()) && book.isAvailable()) {
+                book.setAvailable(false);
+            }
         }
+//        }
     }
 
 }

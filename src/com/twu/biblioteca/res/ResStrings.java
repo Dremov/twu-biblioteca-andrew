@@ -3,7 +3,7 @@ package com.twu.biblioteca.res;
 public class ResStrings {
     public static String welcomeMessage = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n";
     public static String invalidMenuOption = "Please select a valid option!\n";
-    public static String bookCheckoutMessage = "To check-out a book, please type its id: ";
+    public static String bookCheckoutMessage = "\nTo check-out a book, please type its id: ";
 
 
     public static String[] menuOptions = {

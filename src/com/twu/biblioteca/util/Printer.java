@@ -38,7 +38,9 @@ public class Printer {
         StringBuilder sb = new StringBuilder("\nAvailable books:\n");
 
         for(Book book : books) {
-            sb.append(book.getId()).append(" - ").append(book.getTitle()).append("\n");
+            if(book.isAvailable()) {
+                sb.append(book.getId()).append(" - ").append(book.getTitle()).append("\n");
+            }
         }
         sb.append(ResStrings.bookCheckoutMessage);
 
