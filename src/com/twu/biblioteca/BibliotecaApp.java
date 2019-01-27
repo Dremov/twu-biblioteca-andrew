@@ -8,10 +8,11 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
 
-        Library library = new Library(ResStrings.bookNames);
+        Library library = new Library(ResStrings.booksList);
 
         Printer.printMessage(ResStrings.welcomeMessage);
-        Printer.printBooksTitles(library.getBooksTitleList());
+//        Printer.printBooksWithTitles(library.getBooksTitleList());
+        Printer.printFullBooksInfo(library.getBookList());
 
     }
 }

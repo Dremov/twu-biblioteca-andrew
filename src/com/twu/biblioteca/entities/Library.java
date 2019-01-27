@@ -9,7 +9,7 @@ public class Library {
 
     private ArrayList<Book> availableBooks;
 
-    public Library(String[] booksList) {
+    public Library(String[][] booksList) {
         availableBooks = new ArrayList<Book>();
         generateBooks(booksList);
     }
@@ -32,9 +32,9 @@ public class Library {
         return booksTitles.toArray(new String[0]);
     }
 
-    private void generateBooks(String[] bookNames) {
-        for (String bookName : bookNames) {
-            this.availableBooks.add(new Book(bookName));
+    private void generateBooks(String[][] bookList) {
+        for (String[] book : bookList) {
+            this.availableBooks.add(new Book(book[0], book[1], Integer.parseInt(book[2])));
         }
     }
 }
