@@ -90,8 +90,6 @@ public class Library {
                         System.out.println(ResStrings.checkoutBookSuccsessful);
                         control = false;
                     } else {
-//                        System.out.println(ResStrings.checkoutBookUnseccsessful);
-//                        Printer.printBooksWithTitles(catalogBooks);
                         book.setAvailable(true);
                         System.out.println(ResStrings.returnBookSuccessful);
                         control = false;
@@ -99,7 +97,7 @@ public class Library {
                 }
             }
             if (!bookExists) {
-                System.out.println(ResStrings.checkoutBookUnseccsessful);
+                System.out.println(ResStrings.invalidCatalogAction);
                 Printer.printBooksWithTitles(catalogBooks);
             }
         }
