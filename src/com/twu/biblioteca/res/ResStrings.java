@@ -7,6 +7,7 @@ public class ResStrings {
     public static String checkoutBookSuccsessful = "Thank you! Enjoy the book\n";
     public static String checkoutBookUnseccsessful = "Sorry, that book is not available\n";
     public static String checkoutBookUnseccsessful2 = "Sorry, that book id doesn't exist\n";
+    public static String returnBookSuccessful = "Thank you for returninghe book\n";
 
 
     public static String[] menuOptions = {

@@ -93,7 +93,7 @@ public class Library {
 //                        System.out.println(ResStrings.checkoutBookUnseccsessful);
 //                        Printer.printBooksWithTitles(catalogBooks);
                         book.setAvailable(true);
-//                        System.out.println(ResStrings.checkoutBookSuccsessful);
+                        System.out.println(ResStrings.returnBookSuccessful);
                         control = false;
                     }
                 }
