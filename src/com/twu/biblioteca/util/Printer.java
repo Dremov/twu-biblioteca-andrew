@@ -8,10 +8,6 @@ import java.util.List;
 public class Printer {
 
     public static void printBooksWithTitles(List<Book> books) {
-//        System.out.println("Available books:");
-//        for(String title : titles) {
-//            System.out.println(" - " + title);
-//        }
         System.out.println(generateBooksTitlesOutput(books));
     }
 
@@ -33,8 +29,8 @@ public class Printer {
     public static String generateBooksTitlesOutput(List<Book> books) {
         StringBuilder sb = new StringBuilder("\nAvailable books:\n");
 
-        for(Book book : books) {
-            if(book.isAvailable()) {
+        for (Book book : books) {
+            if (book.isAvailable()) {
                 sb.append(book.getId()).append(" - ").append(book.getTitle()).append("\n");
             }
         }

@@ -13,8 +13,8 @@ public class BibliotecaApp {
         System.out.println(ResStrings.welcomeMessage);
 
         library.runMenu();
-//        Printer.printBooksWithTitles(library.getBooksTitleList());  // 1.2
-//        Printer.printFullBooksInfo(library.getBookList());  // 1.3
+//        Printer.printBooksWithTitles(library.getBooksTitleList());  // Story 1.2
+//        Printer.printFullBooksInfo(library.getBookList());  // Story 1.3
 
     }
 }
