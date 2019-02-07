@@ -31,15 +31,8 @@ public class ExampleTest {
         assertEquals("\nAvailable books:\n" +
                 books[0][0]+" - "+books[0][1]+"\n" +
                 books[1][0]+" - "+books[1][1]+"\n" +
-                books[2][0]+" - "+books[2][1]+"\n", Printer.generateBooksTitlesOutput(library.getBookList()));
-
-
-    }
-
-    @Test
-    public void testBookCheckedOut() {
-        String[][] books = ResStrings.booksList;
-        Library library = new Library(books);
+                books[2][0]+" - "+books[2][1]+"\n" +
+                ResStrings.bookCheckoutMessage, Printer.generateBooksTitlesOutput(library.getBookList()));
 
 
     }
