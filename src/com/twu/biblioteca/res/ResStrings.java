@@ -1,5 +1,8 @@
 package com.twu.biblioteca.res;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ResStrings {
     public static String welcomeMessage = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n";
     public static String invalidMenuOption = "Please select a valid option!\n";
@@ -21,4 +24,14 @@ public class ResStrings {
             {"2", "The Secret Diary of Adrian Mole", "Sue Townsend", "1982"},
             {"3", "Catch 22", "Joseph Heller", "1961"}
     };
+
+    public static Map<Integer, String[]> movieList = createMap();
+
+    private static Map<Integer, String[]> createMap() {
+        Map<Integer,String[]> myMap = new HashMap<Integer, String[]>();
+        myMap.put(1, new String[]{"Pulp Fiction", "1994", "Tarantino", "10"});
+        myMap.put(2, new String[]{"Zombie Shaun", "2007", "Director", "10"});
+        return myMap;
+    }
+
 }

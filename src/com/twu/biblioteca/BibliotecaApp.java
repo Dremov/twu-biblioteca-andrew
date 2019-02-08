@@ -8,11 +8,12 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
 
-        Library library = new Library(ResStrings.booksList);
+        Library library = new Library(ResStrings.booksList, ResStrings.movieList);
+        LibraryMenu libraryMenu = new LibraryMenu(library);
 
         System.out.println(ResStrings.welcomeMessage);
 
-        library.runMenu();
+        libraryMenu.runMenu(System.in);
 //        Printer.printBooksWithTitles(library.getBooksTitleList());  // Story 1.2
 //        Printer.printFullBooksInfo(library.getBookList());  // Story 1.3
 

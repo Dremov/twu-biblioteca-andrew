@@ -19,7 +19,7 @@ public class Printer {
     }
 
     public static void printMenu(String[] menuOptions) {
-        System.out.println("Menu:");
+        System.out.println("LibraryMenu:");
         for (String option : menuOptions) {
             System.out.println(option);
         }

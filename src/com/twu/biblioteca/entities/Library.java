@@ -5,23 +5,39 @@ import com.twu.biblioteca.util.Printer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Library {
 
     private ArrayList<Book> catalogBooks;
+    private ArrayList<Movie> catalogMovies;
 
-    public Library(String[][] booksList) {
+    public Library(String[][] booksList, Map<Integer, String[]> movieList) {
         catalogBooks = new ArrayList<Book>();
+        catalogMovies = new ArrayList<Movie>();
         generateBooks(booksList);
+        generateMovies(movieList);
+    }
+
+    public ArrayList<Book> getCatalogBooks() {
+        return catalogBooks;
+    }
+
+    public void setCatalogBooks(ArrayList<Book> catalogBooks) {
+        this.catalogBooks = catalogBooks;
+    }
+
+    public ArrayList<Movie> getCatalogMovies() {
+        return catalogMovies;
+    }
+
+    public void setCatalogMovies(ArrayList<Movie> catalogMovies) {
+        this.catalogMovies = catalogMovies;
     }
 
     public String welcomeMessage() {
         return ResStrings.welcomeMessage;
-    }
-
-    public ArrayList<Book> getBookList() {
-        return catalogBooks;
     }
 
     public String[] getBooksTitleList() {
@@ -40,66 +56,13 @@ public class Library {
         }
     }
 
-    public void runMenu() {
-        boolean control = true;
-        Printer.printMenu(ResStrings.menuOptions);
-
-        while (control) {
-            Scanner input = new Scanner(System.in);
-            String choiceInput = input.next();
-
-            try {
-                int choice = Integer.parseInt(choiceInput);
-                switch (choice) {
-                    case 1:
-                        runBooksMenu();
-                        break;
-
-                    case 0:
-                        System.exit(0);
-                        break;
-
-                    default:
-                        System.out.println(ResStrings.invalidMenuOption);
-                        break;
-                }
-
-                Printer.printMenu(ResStrings.menuOptions);
-
-            } catch (NumberFormatException e) {
-                System.out.println(ResStrings.invalidMenuOption);
-            }
-        }
-    }
-
-    private void runBooksMenu() {
-        Printer.printBooksWithTitles(catalogBooks);
-
-        boolean control = true;
-        boolean bookExists = false;
-
-        while (control) {
-            Scanner input = new Scanner(System.in);
-            String choiceInput = input.next();
-
-            for (Book book : catalogBooks) {
-                if (choiceInput.equals(book.getId())) {
-                    bookExists = true;
-                    if (book.isAvailable()) {
-                        book.setAvailable(false);
-                        System.out.println(ResStrings.checkoutBookSuccsessful);
-                        control = false;
-                    } else {
-                        book.setAvailable(true);
-                        System.out.println(ResStrings.returnBookSuccessful);
-                        control = false;
-                    }
-                }
-            }
-            if (!bookExists) {
-                System.out.println(ResStrings.invalidCatalogAction);
-                Printer.printBooksWithTitles(catalogBooks);
-            }
+    private void generateMovies(Map<Integer, String[]> movieList) {
+        for (Map.Entry<Integer, String[]> entry : movieList.entrySet()) {
+            this.catalogMovies.add(new Movie(
+                    entry.getValue()[0],                        // name
+                    Integer.parseInt(entry.getValue()[1]),      // year
+                    entry.getValue()[2],                        // director
+                    Integer.parseInt(entry.getValue()[3])));    // rating
         }
     }
 }
