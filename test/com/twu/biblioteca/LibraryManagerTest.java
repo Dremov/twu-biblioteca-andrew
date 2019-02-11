@@ -4,9 +4,12 @@ import com.twu.biblioteca.entities.Book;
 import com.twu.biblioteca.entities.Library;
 import com.twu.biblioteca.entities.User;
 import com.twu.biblioteca.res.ResStrings;
+import com.twu.biblioteca.util.IOHelper;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.mockito.Mockito.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -44,7 +47,7 @@ public class LibraryManagerTest {
 
     private String loginOutput = "Books to be returned:\n" +
             "123-1234 - 'Book dummy'\n\n" +
-            "Login: \n" +
+            "Login: " +
             "Password: \n";
 
     private String checkoutInputInfo = ResStrings.bookCheckoutMessage + "\n";
@@ -84,7 +87,16 @@ public class LibraryManagerTest {
     public void testLoginScreen() {
         String testedOutput = loginOutput;
 
-        libraryManager.run();
+        String inputOption = "1";
+
+        String input = "123-1234\n1234";
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+
+        IOHelper ioMmock = mock(IOHelper.class);
+        when(ioMmock.readline(inputStream)).thenReturn("123-1234");
+        when(ioMmock.readline(inputStream)).thenReturn("1234");
+
+        libraryManager.run(ioMmock, inputStream);
 
         assertEquals(testedOutput, outContent.toString());
     }
@@ -96,10 +108,12 @@ public class LibraryManagerTest {
                 "Phone: 12345\n";
         String testedOutput = welcomeMessage + "\n" + testUserDetails + menuOutput;
 
-        String inputOption = "1";
+        String input = "123-1234\n1234";
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
 
-        InputStream inputStream = new ByteArrayInputStream(inputOption.getBytes());
-        System.setIn(inputStream);
+        IOHelper ioMmock = mock(IOHelper.class);
+        when(ioMmock.readline(inputStream)).thenReturn("123-1234");
+        when(ioMmock.readline(inputStream)).thenReturn("1234");
 
         libraryManager.runMenu(new User("123-1234", "1234", "testName1", "test@test.com", "12345", null), inputStream);
 

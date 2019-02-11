@@ -5,6 +5,7 @@ import com.twu.biblioteca.entities.Library;
 import com.twu.biblioteca.entities.Movie;
 import com.twu.biblioteca.entities.User;
 import com.twu.biblioteca.res.ResStrings;
+import com.twu.biblioteca.util.IOHelper;
 import com.twu.biblioteca.util.Printer;
 
 import java.io.InputStream;
@@ -18,21 +19,21 @@ public class LibraryManager {
         this.library = library;
     }
 
-    public void run() {
+    public void run(IOHelper ioHelper, InputStream inputStream) {
         System.out.println(getHoldedBooks());
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(inputStream);
 
         System.out.print("Login: ");
-        String loginId = input.next();
+        String loginId = ioHelper.readline(inputStream);
 
         System.out.println("Password: ");
-        String loginPass = input.next();
+        String loginPass = ioHelper.readline(inputStream);
 
         if (userExists(loginId, loginPass)) {
             runMenu(library.getUserById(loginId), System.in);
-        } else {
-            run();
-        }
+        } //else {
+           // run(ioHelper, System.in);
+        //}
     }
 
     public void runMenu(User loggedUser, InputStream inputStream) {
