@@ -115,7 +115,7 @@ public class LibraryManagerTest {
         when(ioMmock.readline(inputStream)).thenReturn("123-1234");
         when(ioMmock.readline(inputStream)).thenReturn("1234");
 
-        libraryManager.runMenu(new User("123-1234", "1234", "testName1", "test@test.com", "12345", null), inputStream);
+        libraryManager.runMenu(new User("123-1234", "1234", "testName1", "test@test.com", "12345", null), ioMmock, inputStream);
 
         assertEquals(testedOutput, outContent.toString());
     }

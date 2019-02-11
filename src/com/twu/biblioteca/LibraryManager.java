@@ -30,25 +30,25 @@ public class LibraryManager {
         String loginPass = ioHelper.readline(inputStream);
 
         if (userExists(loginId, loginPass)) {
-            runMenu(library.getUserById(loginId), System.in);
-        } //else {
-           // run(ioHelper, System.in);
-        //}
+            runMenu(library.getUserById(loginId), ioHelper, System.in);
+        } else {
+            run(ioHelper, System.in);
+        }
     }
 
-    public void runMenu(User loggedUser, InputStream inputStream) {
+    public void runMenu(User loggedUser, IOHelper ioHelper, InputStream inputStream) {
         boolean control = true;
 
         Printer.printUserInfo(loggedUser);
         Printer.printMenu(ResStrings.menuOptions);
 
-        while (control) {
-            Scanner input = new Scanner(inputStream);
-            String choiceInput = input.next();
+//        while (control) {
+//            Scanner input = new Scanner(inputStream);
+//            String choiceInput = input.next();
 
-            execMenuOption(choiceInput);
+            execMenuOption(ioHelper.readline(inputStream));
 
-        }
+//        }
     }
 
     public void execMenuOption(String inputOption) {
