@@ -82,14 +82,29 @@ public class Library {
         for (String[] user : userList) {
             ArrayList<Book> holdedBooks = new ArrayList<>();
             try {
-                holdedBooks.add(new Book("", user[2], "", 0));
+                holdedBooks.add(new Book("", user[5], "", 0));
             } catch (Exception e) {
 //                this.userList.add(new User(user[0], user[1], holdedBooks));
             }
-            this.userList.add(new User(user[0], user[1], holdedBooks));
+            this.userList.add(new User(user[0], // id
+                    user[1],                    // name
+                    user[2],                    // email
+                    user[3],                    // phone
+                    user[4],
+                    holdedBooks));
 
 
         }
 
+    }
+
+    public User getUserById(String inputId) {
+        for (User user : this.getUserList()) {
+            if (user.getId().equals(inputId)) {
+                return user;
+            }
+        }
+
+        return null;
     }
 }

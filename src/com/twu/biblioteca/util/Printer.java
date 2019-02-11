@@ -2,6 +2,7 @@ package com.twu.biblioteca.util;
 
 import com.twu.biblioteca.entities.Book;
 import com.twu.biblioteca.entities.Movie;
+import com.twu.biblioteca.entities.User;
 import com.twu.biblioteca.res.ResStrings;
 
 import java.util.List;
@@ -21,6 +22,12 @@ public class Printer {
         for (Book book : books) {
             System.out.println(" - " + book.getTitle() + " | " + book.getAuthor() + " | " + book.getYear());
         }
+    }
+
+    public static void printUserInfo(User user) {
+        System.out.println("Name: " + user.getName());
+        System.out.println("Email: " + user.getEmail());
+        System.out.println("Phone: " + user.getPhone() + "\n");
     }
 
     public static void printMenu(String[] menuOptions) {

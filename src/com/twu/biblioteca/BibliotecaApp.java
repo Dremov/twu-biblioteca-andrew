@@ -12,7 +12,8 @@ public class BibliotecaApp {
 
         System.out.println(ResStrings.welcomeMessage);
 
-        libraryManager.runMenu(System.in);
+        libraryManager.run();
+//        libraryManager.runMenu(System.in);
 //        Printer.printBooksWithTitles(library.getBooksTitleList());  // Story 1.2
 //        Printer.printFullBooksInfo(library.getBookList());  // Story 1.3
 

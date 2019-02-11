@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.entities.Book;
 import com.twu.biblioteca.entities.Library;
+import com.twu.biblioteca.entities.User;
 import com.twu.biblioteca.res.ResStrings;
 import org.junit.After;
 import org.junit.Before;
@@ -84,6 +85,23 @@ public class LibraryManagerTest {
         String testedOutput = loginOutput;
 
         libraryManager.run();
+
+        assertEquals(testedOutput, outContent.toString());
+    }
+
+    @Test
+    public void testLoggedInUserInfo() {
+        String testUserDetails = "Name: testName1\n" +
+                "Email: test@test.com\n" +
+                "Phone: 12345\n";
+        String testedOutput = welcomeMessage + "\n" + testUserDetails + menuOutput;
+
+        String inputOption = "1";
+
+        InputStream inputStream = new ByteArrayInputStream(inputOption.getBytes());
+        System.setIn(inputStream);
+
+        libraryManager.runMenu(new User("123-1234", "1234", "testName1", "test@test.com", "12345", null), inputStream);
 
         assertEquals(testedOutput, outContent.toString());
     }

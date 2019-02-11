@@ -20,13 +20,25 @@ public class LibraryManager {
 
     public void run() {
         System.out.println(getHoldedBooks());
+        Scanner input = new Scanner(System.in);
 
-        System.out.println("Login: \n" +
-                "Password: ");
+        System.out.print("Login: ");
+        String loginId = input.next();
+
+        System.out.println("Password: ");
+        String loginPass = input.next();
+
+        if (userExists(loginId, loginPass)) {
+            runMenu(library.getUserById(loginId), System.in);
+        } else {
+            run();
+        }
     }
 
-    public void runMenu(InputStream inputStream) {
+    public void runMenu(User loggedUser, InputStream inputStream) {
         boolean control = true;
+
+        Printer.printUserInfo(loggedUser);
         Printer.printMenu(ResStrings.menuOptions);
 
         while (control) {

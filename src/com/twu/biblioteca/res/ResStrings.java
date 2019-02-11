@@ -36,8 +36,8 @@ public class ResStrings {
     }
 
     public static String[][] userList = {
-            {"123-1234", "1234", "Book dummy"},
-            {"4321-321", "4321"}
+            {"123-1234", "1234", "testName1", "test@test.com", "12345", "Book dummy"},
+            {"4321-321", "4321", "testName2", "tes2t@test.com", "54321"}
     };
 
 }
