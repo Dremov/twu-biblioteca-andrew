@@ -11,7 +11,14 @@ public class Movie {
         this.name = name;
         this.year = year;
         this.director = director;
-        this.rating = rating;
+
+        if (rating < 1) {
+            this.rating = 1;
+        } else if (rating > 10) {
+            this.rating = 10;
+        } else {
+            this.rating = rating;
+        }
     }
 
     public String getName() {

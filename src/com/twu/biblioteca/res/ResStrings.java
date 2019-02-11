@@ -16,6 +16,7 @@ public class ResStrings {
 
     public static String[] menuOptions = {
             "1 - List of books",
+            "2 - List of movies",
             "0 - Quit"
     };
 

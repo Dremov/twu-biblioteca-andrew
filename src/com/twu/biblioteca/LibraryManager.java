@@ -8,11 +8,11 @@ import com.twu.biblioteca.util.Printer;
 import java.io.InputStream;
 import java.util.Scanner;
 
-public class LibraryMenu {
+public class LibraryManager {
 
     private Library library;
 
-    public LibraryMenu(Library library) {
+    public LibraryManager(Library library) {
         this.library = library;
     }
 
@@ -34,7 +34,7 @@ public class LibraryMenu {
             int choice = Integer.parseInt(inputOption);
             switch (choice) {
                 case 1:
-                    runBooksMenu();
+                    runBooksMenu(System.in);
                     break;
 
                 case 0:
@@ -53,14 +53,14 @@ public class LibraryMenu {
         }
     }
 
-    public void runBooksMenu() {
+    public void runBooksMenu(InputStream inputStream) {
         Printer.printBooksWithTitles(library.getCatalogBooks());
 
         boolean control = true;
         boolean bookExists = false;
 
         while (control) {
-            Scanner input = new Scanner(System.in);
+            Scanner input = new Scanner(inputStream);
             String choiceInput = input.next();
 
             for (Book book : library.getCatalogBooks()) {
@@ -84,7 +84,7 @@ public class LibraryMenu {
         }
     }
 
-    public void runMoviesMenu() {
-
+    public void runMoviesMenu(InputStream inputStream) {
+        Printer.printMoviesWithTitles(library.getCatalogMovies());
     }
 }
