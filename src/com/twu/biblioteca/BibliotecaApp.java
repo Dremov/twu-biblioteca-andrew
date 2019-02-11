@@ -7,7 +7,7 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
 
-        Library library = new Library(ResStrings.booksList, ResStrings.movieList);
+        Library library = new Library(ResStrings.booksList, ResStrings.movieList, ResStrings.userList);
         LibraryManager libraryManager = new LibraryManager(library);
 
         System.out.println(ResStrings.welcomeMessage);

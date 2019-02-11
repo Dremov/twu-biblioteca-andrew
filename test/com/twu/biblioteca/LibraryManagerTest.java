@@ -13,6 +13,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 public class LibraryManagerTest {
@@ -57,7 +58,7 @@ public class LibraryManagerTest {
         testBooks.add(book3);
 
 
-        Library library = new Library(ResStrings.booksList, ResStrings.movieList);
+        Library library = new Library(ResStrings.booksList, ResStrings.movieList, ResStrings.userList);
 
         libraryManager = new LibraryManager(library);
         System.setOut(new PrintStream(outContent));
@@ -75,6 +76,17 @@ public class LibraryManagerTest {
         libraryManager.run();
 
         assertEquals(testedOutput, outContent.toString());
+    }
+
+    @Test
+    public void testValidUser() {
+        String testUser1 = "";
+        String testPass1 = "";
+        assertThat(libraryManager.userExists(testUser1, testPass1), is(false));
+
+        String testUser2 = "123-1234";
+        String testPass2 = "1234";
+        assertThat(libraryManager.userExists(testUser2, testPass2), is(true));
     }
 
     @Test

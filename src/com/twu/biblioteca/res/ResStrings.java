@@ -35,4 +35,9 @@ public class ResStrings {
         return myMap;
     }
 
+    public static String[][] userList = {
+            {"123-1234", "1234"},
+            {"4321-321", "4321"}
+    };
+
 }

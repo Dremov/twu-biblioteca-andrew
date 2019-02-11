@@ -12,12 +12,23 @@ public class Library {
 
     private ArrayList<Book> catalogBooks;
     private ArrayList<Movie> catalogMovies;
+    private ArrayList<User> userList;
 
-    public Library(String[][] booksList, Map<Integer, String[]> movieList) {
-        catalogBooks = new ArrayList<Book>();
-        catalogMovies = new ArrayList<Movie>();
+    public Library(String[][] booksList, Map<Integer, String[]> movieList, String[][] userList) {
+        this.catalogBooks = new ArrayList<Book>();
+        this.catalogMovies = new ArrayList<Movie>();
+        this.userList = new ArrayList<User>();
         generateBooks(booksList);
         generateMovies(movieList);
+        generateUsers(userList);
+    }
+
+    public ArrayList<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(ArrayList<User> userList) {
+        this.userList = userList;
     }
 
     public ArrayList<Book> getCatalogBooks() {
@@ -65,5 +76,12 @@ public class Library {
                     entry.getValue()[2],                        // director
                     Integer.parseInt(entry.getValue()[3])));    // rating
         }
+    }
+
+    private void generateUsers(String[][] userList) {
+        for (String[] user : userList) {
+            this.userList.add(new User(user[0], user[1], new ArrayList<>()));
+        }
+
     }
 }

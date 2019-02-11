@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import com.twu.biblioteca.entities.Book;
 import com.twu.biblioteca.entities.Library;
 import com.twu.biblioteca.entities.Movie;
+import com.twu.biblioteca.entities.User;
 import com.twu.biblioteca.res.ResStrings;
 import com.twu.biblioteca.util.Printer;
 
@@ -108,5 +109,14 @@ public class LibraryManager {
                 }
             }
         }
+    }
+
+    public boolean userExists(String id, String pass) {
+        for (User user : library.getUserList()) {
+            if (user.getId().equals(id) && user.getPass().equals(pass)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -17,26 +17,26 @@ public class ExampleTest {
 
     @Test
     public void testWelcome() {
-        Library library = new Library(ResStrings.booksList, ResStrings.movieList);
+        Library library = new Library(ResStrings.booksList, ResStrings.movieList, ResStrings.userList);
         assertEquals(ResStrings.welcomeMessage, library.welcomeMessage());
     }
 
     @Test
     public void testBooksGenerated() {
-        Library library = new Library(ResStrings.booksList, ResStrings.movieList);
+        Library library = new Library(ResStrings.booksList, ResStrings.movieList, ResStrings.userList);
         assertFalse(library.getCatalogBooks().isEmpty());
     }
 
     @Test
     public void testMoviesGenerated() {
-        Library library = new Library(ResStrings.booksList, ResStrings.movieList);
+        Library library = new Library(ResStrings.booksList, ResStrings.movieList, ResStrings.userList);
         assertFalse(library.getCatalogMovies().isEmpty());
     }
 
     @Test
     public void testBookTitleListOutput() {
         String[][] books = ResStrings.booksList;
-        Library library = new Library(books, ResStrings.movieList);
+        Library library = new Library(books, ResStrings.movieList, ResStrings.userList);
 
         assertEquals("\nAvailable books:\n" +
                 books[0][0]+" - "+books[0][1]+"\n" +
@@ -48,7 +48,7 @@ public class ExampleTest {
     @Test
     public void testBookCheckout() {
 //        Library libraryMock = mock(Library.class);
-        Library library = new Library(ResStrings.booksList, ResStrings.movieList);
+        Library library = new Library(ResStrings.booksList, ResStrings.movieList, ResStrings.userList);
         Book bookMock = mock(Book.class);
 
         LibraryManager libraryManager = new LibraryManager(library);
@@ -61,38 +61,4 @@ public class ExampleTest {
         libraryManager.runBooksMenu(inputStream);
         verify(bookMock, atLeastOnce()).setAvailable(false);
     }
-
-//    @Test
-//    public void testMenuCallsBookCatalog() {
-//        Library libraryMock = mock(Library.class);
-//        Library library = new Library(ResStrings.booksList, ResStrings.movieList);
-//
-//        LibraryManager libraryMenuMock = mock(LibraryManager.class);
-//        LibraryManager libraryMenu = new LibraryManager(library);
-//
-//        String inputOption = "1";
-//
-//        InputStream inputStream = new ByteArrayInputStream(inputOption.getBytes());
-//        System.setIn(inputStream);
-//
-//        libraryMenu.runMenu(inputStream);
-//        verify(libraryMenu, times(1)).runBooksMenu(inputStream);
-//    }
-//
-//    @Test
-//    public void testMenuCallsMovieCatalog() {
-//        Library library = new Library(ResStrings.booksList);
-//        LibraryManager libraryMenu = new LibraryManager(library);
-//
-//        String inputOption = "2";
-//
-//        InputStream inputStream = new ByteArrayInputStream(inputOption.getBytes());
-//        System.setIn(inputStream);
-//
-//        libraryMenu.runMenu(inputStream);
-//
-//        verify(libraryMenu, times(1)).runMoviesMenu();
-
-//    }
-
 }
