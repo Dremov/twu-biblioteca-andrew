@@ -17,6 +17,11 @@ public class LibraryManager {
         this.library = library;
     }
 
+    public void run() {
+        System.out.println("Login: \n" +
+                "Password: ");
+    }
+
     public void runMenu(InputStream inputStream) {
         boolean control = true;
         Printer.printMenu(ResStrings.menuOptions);

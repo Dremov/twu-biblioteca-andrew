@@ -40,6 +40,9 @@ public class LibraryManagerTest {
             "1|Pulp Fiction - 1994\n" +
             "2|Zombie Shaun - 2007\n";
 
+    private String loginOutput = "Login: \n" +
+            "Password: \n";
+
     private String checkoutInputInfo = ResStrings.bookCheckoutMessage + "\n";
     private String checkoutSuccessful = ResStrings.checkoutBookSuccsessful + "\n";
 
@@ -63,6 +66,15 @@ public class LibraryManagerTest {
     @After
     public void restoreStreams() {
         System.setOut(originalOut);
+    }
+
+    @Test
+    public void testLoginScreen() {
+        String testedOutput = loginOutput;
+
+        libraryManager.run();
+
+        assertEquals(testedOutput, outContent.toString());
     }
 
     @Test
