@@ -48,7 +48,7 @@ public class Printer {
         StringBuilder sb = new StringBuilder("\nAvailable movies:\n");
 
         for (Movie movie : movies) {
-            sb.append(movie.getName()).append(" - ").append(movie.getYear()).append("\n");
+            sb.append(movie.getId()).append("|").append(movie.getName()).append(" - ").append(movie.getYear()).append("\n");
         }
 
         sb.append(ResStrings.bookCheckoutMessage);

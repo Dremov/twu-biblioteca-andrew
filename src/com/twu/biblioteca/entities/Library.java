@@ -59,6 +59,7 @@ public class Library {
     private void generateMovies(Map<Integer, String[]> movieList) {
         for (Map.Entry<Integer, String[]> entry : movieList.entrySet()) {
             this.catalogMovies.add(new Movie(
+                    entry.getKey(),
                     entry.getValue()[0],                        // name
                     Integer.parseInt(entry.getValue()[1]),      // year
                     entry.getValue()[2],                        // director

@@ -37,8 +37,8 @@ public class LibraryManagerTest {
             "3 - Catch 22\n";
 
     private String movieList = "\nAvailable movies:\n" +
-            "Pulp Fiction - 1994\n" +
-            "Zombie Shaun - 2007\n";
+            "1|Pulp Fiction - 1994\n" +
+            "2|Zombie Shaun - 2007\n";
 
     private String checkoutInputInfo = ResStrings.bookCheckoutMessage + "\n";
     private String checkoutSuccessful = ResStrings.checkoutBookSuccsessful + "\n";
@@ -70,31 +70,26 @@ public class LibraryManagerTest {
         String testedOutput = bookList + checkoutInputInfo + checkoutSuccessful;
 
         String inputOption = "1";
-//
+
         InputStream inputStream = new ByteArrayInputStream(inputOption.getBytes());
         System.setIn(inputStream);
 
-//        libraryManager.runMenu(inputStream);
         libraryManager.runBooksMenu(inputStream);
 
         assertEquals(testedOutput, outContent.toString());
     }
 
     @Test
-    public void testCorrectMovieListOutput() {
-        String testedOutput = movieList + checkoutInputInfo;
+    public void testCorrectMoviesOutput() {
+        String testedOutput = movieList + checkoutInputInfo + "Pulp Fiction successfully checked out!\n";
 
         String inputOption = "1";
-//
+
         InputStream inputStream = new ByteArrayInputStream(inputOption.getBytes());
         System.setIn(inputStream);
 
-//        libraryManager.runMenu(inputStream);
         libraryManager.runMoviesMenu(inputStream);
 
         assertEquals(testedOutput, outContent.toString());
     }
-
-
-
 }

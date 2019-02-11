@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.entities.Book;
 import com.twu.biblioteca.entities.Library;
+import com.twu.biblioteca.entities.Movie;
 import com.twu.biblioteca.res.ResStrings;
 import com.twu.biblioteca.util.Printer;
 
@@ -35,6 +36,10 @@ public class LibraryManager {
             switch (choice) {
                 case 1:
                     runBooksMenu(System.in);
+                    break;
+
+                case 2:
+                    runMoviesMenu(System.in);
                     break;
 
                 case 0:
@@ -86,5 +91,17 @@ public class LibraryManager {
 
     public void runMoviesMenu(InputStream inputStream) {
         Printer.printMoviesWithTitles(library.getCatalogMovies());
+
+        while (true) {
+            Scanner input = new Scanner(inputStream);
+            String choiceInput = input.next();
+
+            for (Movie movie : library.getCatalogMovies()) {
+                if (Integer.parseInt(choiceInput) == movie.getId()) {
+                    System.out.println(movie.getName() + " successfully checked out!");
+                    return;
+                }
+            }
+        }
     }
 }

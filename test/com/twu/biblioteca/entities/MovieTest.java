@@ -15,7 +15,7 @@ public class MovieTest {
 
     @Before
     public void setup() {
-        movie = new Movie(title, year, director, rating);
+        movie = new Movie(1, title, year, director, rating);
     }
 
     @Test
@@ -37,10 +37,10 @@ public class MovieTest {
     public void getRating() {
         assertEquals(rating, movie.getRating());
 
-        Movie movie2 = new Movie(title, year, director, 12);
+        Movie movie2 = new Movie(2, title, year, director, 12);
         assertEquals(10, movie2.getRating());
 
-        Movie movie3 = new Movie(title, year, director, -2);
+        Movie movie3 = new Movie(3, title, year, director, -2);
         assertEquals(1, movie3.getRating());
     }
 }

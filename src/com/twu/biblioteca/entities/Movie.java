@@ -2,12 +2,14 @@ package com.twu.biblioteca.entities;
 
 public class Movie {
 
+    private int id;
     private String name;
     private int year;
     private String director;
     private int rating; // 1-10
 
-    public Movie(String name, int year, String director, int rating) {
+    public Movie(int id, String name, int year, String director, int rating) {
+        this.id = id;
         this.name = name;
         this.year = year;
         this.director = director;
@@ -19,6 +21,14 @@ public class Movie {
         } else {
             this.rating = rating;
         }
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
