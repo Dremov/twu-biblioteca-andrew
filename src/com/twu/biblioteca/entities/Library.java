@@ -80,7 +80,15 @@ public class Library {
 
     private void generateUsers(String[][] userList) {
         for (String[] user : userList) {
-            this.userList.add(new User(user[0], user[1], new ArrayList<>()));
+            ArrayList<Book> holdedBooks = new ArrayList<>();
+            try {
+                holdedBooks.add(new Book("", user[2], "", 0));
+            } catch (Exception e) {
+//                this.userList.add(new User(user[0], user[1], holdedBooks));
+            }
+            this.userList.add(new User(user[0], user[1], holdedBooks));
+
+
         }
 
     }

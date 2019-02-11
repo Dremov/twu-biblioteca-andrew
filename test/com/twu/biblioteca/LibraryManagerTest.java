@@ -41,7 +41,9 @@ public class LibraryManagerTest {
             "1|Pulp Fiction - 1994\n" +
             "2|Zombie Shaun - 2007\n";
 
-    private String loginOutput = "Login: \n" +
+    private String loginOutput = "Books to be returned:\n" +
+            "123-1234 - 'Book dummy'\n\n" +
+            "Login: \n" +
             "Password: \n";
 
     private String checkoutInputInfo = ResStrings.bookCheckoutMessage + "\n";
@@ -67,6 +69,14 @@ public class LibraryManagerTest {
     @After
     public void restoreStreams() {
         System.setOut(originalOut);
+    }
+
+    @Test
+    public void testusersHoldingBooks() {
+        String testedOutput = "Books to be returned:\n" +
+                "123-1234 - 'Book dummy'\n";
+
+        assertEquals(testedOutput, libraryManager.getHoldedBooks());
     }
 
     @Test

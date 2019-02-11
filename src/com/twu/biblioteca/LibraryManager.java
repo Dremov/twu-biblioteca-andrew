@@ -19,6 +19,8 @@ public class LibraryManager {
     }
 
     public void run() {
+        System.out.println(getHoldedBooks());
+
         System.out.println("Login: \n" +
                 "Password: ");
     }
@@ -118,5 +120,16 @@ public class LibraryManager {
             }
         }
         return false;
+    }
+
+    public String getHoldedBooks() {
+        StringBuilder sb = new StringBuilder("Books to be returned:\n");
+
+        for (User user : library.getUserList()) {
+            if (!user.getBooksCheckedout().isEmpty()) {
+                sb.append(user.getId()).append(" - '").append(user.getBooksCheckedout().get(0).getTitle()).append("'\n");
+            }
+        }
+        return sb.toString();
     }
 }
